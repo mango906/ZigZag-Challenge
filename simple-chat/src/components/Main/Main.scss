@@ -1,0 +1,13 @@
+.main {
+  width: 500px;
+
+  &-header {
+    width: 100%;
+    background: #3e3f4e;
+    color: #c6c6cc;
+    font-weight: bold;
+    height: 100px;
+    line-height: 100px;
+    font-size: 1.65rem;
+  }
+}
