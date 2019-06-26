@@ -1,3 +1,28 @@
 .chatitem {
   width: 100%;
+  display: flex;
+  border-bottom: 1px solid #e6e6e6;
+
+  &-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  &-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 30px;
+
+    &-name {
+      font-size: 1.35rem;
+      font-weight: bold;
+    }
+
+    &-content {
+      color: #808080;
+      margin-top: 10px;
+    }
+  }
 }
