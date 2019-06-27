@@ -1,7 +1,7 @@
 import React from 'react';
-import './ChatItem.scss';
+import './RoomItem.scss';
 
-const ChatItem = ({ data }) => {
+const RoomItem = ({ data }) => {
   return (
     <div className="chatitem">
       <img className="chatitem-image" src={data.profile_image} alt="img" />
@@ -13,4 +13,4 @@ const ChatItem = ({ data }) => {
   );
 };
 
-export default ChatItem;
+export default RoomItem;

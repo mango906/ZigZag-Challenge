@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Main.scss';
-import ChatItem from './ChatItem';
+import RoomItem from './RoomItem';
 import { inject, observer } from 'mobx-react';
 
 @inject('stores')
@@ -15,7 +15,7 @@ class Main extends Component {
 
   async componentDidMount() {
     const { stores } = this.props;
-    const data = await stores.member.getChats();
+    const data = await stores.member.getRooms();
     this.setState({
       data
     });
@@ -24,7 +24,7 @@ class Main extends Component {
   render() {
     const { data } = this.state;
     const items = data.map(d => {
-      return <ChatItem data={d} />;
+      return <RoomItem data={d} />;
     });
 
     return (

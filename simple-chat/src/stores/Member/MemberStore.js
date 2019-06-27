@@ -5,7 +5,17 @@ class MemberStore {
     {
       id: 0,
       name: '임블리',
-      profile_image: 'https://cf.shop.s.zigzag.kr/images/imvely.jpg'
+      profile_image: 'https://cf.shop.s.zigzag.kr/images/imvely.jpg',
+      data: [
+        {
+          type: 'received',
+          content: '받는 메세지'
+        },
+        {
+          type: 'sended',
+          content: '보내는 메세지'
+        }
+      ]
     },
     {
       id: 1,
@@ -14,8 +24,12 @@ class MemberStore {
     }
   ];
 
-  @action getChats() {
+  @action getRooms() {
     return this.items;
+  }
+
+  @action getChats() {
+    return this.items[0].data;
   }
 }
 
