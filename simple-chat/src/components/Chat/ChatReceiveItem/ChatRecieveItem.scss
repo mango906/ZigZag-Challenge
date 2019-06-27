@@ -1,0 +1,27 @@
+.chat-receive-item {
+  display: flex;
+
+  width: auto;
+  position: relative;
+  margin: 50px;
+
+  &-content {
+    display: flex;
+    padding: 0px 20px 0px 50px;
+    height: 50px;
+    color: #a9a9a9;
+    font-weight: bold;
+    margin: 30px;
+
+    line-height: 50px;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+  img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    margin-bottom: 10px;
+  }
+}

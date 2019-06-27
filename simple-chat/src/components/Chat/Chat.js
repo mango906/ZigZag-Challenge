@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Chat.scss';
 import { inject, observer } from 'mobx-react';
 import ChatSendItem from './ChatSendItem';
+import ChatRecieveItem from './ChatReceiveItem';
 
 @inject('stores')
 @observer
@@ -28,7 +29,9 @@ class Chat extends Component {
       data &&
       data.map(data => {
         if (data.type === 'sended') {
-          return <ChatSendItem data={data} />;
+          return <ChatSendItem data={data} key={data.id} />;
+        } else {
+          return <ChatRecieveItem data={data} key={data.id} />;
         }
       });
 
