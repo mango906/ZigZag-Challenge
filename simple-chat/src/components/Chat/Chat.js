@@ -10,7 +10,8 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      contents: ''
     };
   }
 
@@ -22,6 +23,27 @@ class Chat extends Component {
       data
     });
   }
+
+  handleChange = e => {
+    this.setState({
+      contents: e.target.value
+    });
+  };
+
+  handleSubmit = async () => {
+    const { contents } = this.state;
+    const { stores, match } = this.props;
+    const idx = match.params.id;
+    let req = {
+      type: 'sended',
+      content: contents
+    };
+    await stores.member.submitChat(idx, req);
+    const data = await stores.member.getChats(idx);
+    this.setState({
+      data
+    });
+  };
 
   render() {
     const { data } = this.state;
@@ -41,8 +63,8 @@ class Chat extends Component {
         <div className="chat-header">하이</div>
         <div className="chat-contents">{items}</div>
         <div className="chat-footer">
-          <input placeholder="Type something to send..." />
-          <button>보내기</button>
+          <input onChange={this.handleChange} placeholder="Type something to send..." />
+          <button onClick={this.handleSubmit}>보내기</button>
         </div>
       </div>
     );

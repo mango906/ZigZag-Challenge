@@ -20,7 +20,8 @@ class MemberStore {
     {
       id: 1,
       name: '미아마스빈',
-      profile_image: 'https://cf.shop.s.zigzag.kr/images/miamasvin.jpg'
+      profile_image: 'https://cf.shop.s.zigzag.kr/images/miamasvin.jpg',
+      data: []
     }
   ];
 
@@ -30,6 +31,10 @@ class MemberStore {
 
   @action getChats(idx) {
     return this.items[idx];
+  }
+
+  @action submitChat(idx, data) {
+    this.items[idx].data.push(data);
   }
 }
 
