@@ -43,10 +43,14 @@ class Chat extends Component {
     this.setState({
       data
     });
+
+    this.setState({
+      contents: ''
+    });
   };
 
   render() {
-    const { data } = this.state;
+    const { data, contents } = this.state;
 
     const items =
       data.data &&
@@ -60,10 +64,14 @@ class Chat extends Component {
 
     return (
       <div className="chat">
-        <div className="chat-header">하이</div>
+        <div className="chat-header">{data.name}</div>
         <div className="chat-contents">{items}</div>
         <div className="chat-footer">
-          <input onChange={this.handleChange} placeholder="Type something to send..." />
+          <input
+            onChange={this.handleChange}
+            value={contents}
+            placeholder="Type something to send..."
+          />
           <button onClick={this.handleSubmit}>보내기</button>
         </div>
       </div>
