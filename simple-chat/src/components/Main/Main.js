@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Main.scss';
 import RoomItem from './RoomItem';
+import { withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 
 @inject('stores')
@@ -21,10 +22,15 @@ class Main extends Component {
     });
   }
 
+  handleRedirect = id => {
+    const { history } = this.props;
+    history.push(`/chat/${id}`);
+  };
+
   render() {
     const { data } = this.state;
-    const items = data.map(d => {
-      return <RoomItem data={d} />;
+    const items = data.map(data => {
+      return <RoomItem key={data.id} data={data} handleClick={this.handleRedirect} />;
     });
 
     return (
@@ -36,4 +42,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);

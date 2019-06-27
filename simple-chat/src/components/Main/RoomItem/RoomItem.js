@@ -1,9 +1,14 @@
 import React from 'react';
 import './RoomItem.scss';
 
-const RoomItem = ({ data }) => {
+const RoomItem = ({ data, handleClick }) => {
   return (
-    <div className="chatitem">
+    <div
+      className="chatitem"
+      onClick={() => {
+        handleClick(data.id);
+      }}
+    >
       <img className="chatitem-image" src={data.profile_image} alt="img" />
       <div className="chatitem-desc">
         <div className="chatitem-desc-name">{data.name}</div>

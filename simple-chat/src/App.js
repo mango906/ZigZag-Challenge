@@ -10,7 +10,7 @@ function App() {
       <div className="App">{/* <Main /> */}</div>
 
       <Route exact path="/" component={Main} />
-      <Route path="/chat" component={Chat} />
+      <Route path="/chat/:id" component={Chat} />
     </BrowserRouter>
   );
 }

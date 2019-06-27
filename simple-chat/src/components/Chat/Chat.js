@@ -9,12 +9,15 @@ import ChatRecieveItem from './ChatReceiveItem';
 class Chat extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: []
+    };
   }
 
   async componentDidMount() {
-    const { stores } = this.props;
-    const data = await stores.member.getChats();
+    const { stores, match } = this.props;
+    const idx = match.params.id;
+    const data = await stores.member.getChats(idx);
     this.setState({
       data
     });
@@ -23,15 +26,13 @@ class Chat extends Component {
   render() {
     const { data } = this.state;
 
-    console.log(data);
-
     const items =
-      data &&
-      data.map(data => {
-        if (data.type === 'sended') {
-          return <ChatSendItem data={data} key={data.id} />;
+      data.data &&
+      data.data.map(d => {
+        if (d.type === 'sended') {
+          return <ChatSendItem data={d} key={d.id} />;
         } else {
-          return <ChatRecieveItem data={data} key={data.id} />;
+          return <ChatRecieveItem data={d} key={d.id} profile_image={data.profile_image} />;
         }
       });
 

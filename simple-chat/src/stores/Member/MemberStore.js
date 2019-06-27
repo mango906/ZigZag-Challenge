@@ -28,8 +28,8 @@ class MemberStore {
     return this.items;
   }
 
-  @action getChats() {
-    return this.items[0].data;
+  @action getChats(idx) {
+    return this.items[idx];
   }
 }
 
