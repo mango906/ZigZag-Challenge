@@ -4,7 +4,6 @@ import myInfo from './../../static/data/myinfo.json';
 import ATTACHMENT from './../../static/icon/attachment.png';
 
 const ChatSendItem = ({ data }) => {
-  console.log(data);
   return (
     <div className="chat-send-item">
       {(() => {
