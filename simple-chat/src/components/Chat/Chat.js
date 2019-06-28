@@ -23,6 +23,8 @@ class Chat extends Component {
     this.setState({
       data
     });
+
+    this.scrollToBottom();
   }
 
   handleChange = e => {
@@ -51,6 +53,8 @@ class Chat extends Component {
     this.setState({
       contents: ''
     });
+
+    this.scrollToBottom();
   };
 
   uploadFile = async e => {
@@ -74,6 +78,15 @@ class Chat extends Component {
     });
   };
 
+  scrollToBottom = () => {
+    this.chatContents.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  handleBack = () => {
+    const { history } = this.props;
+    history.goBack();
+  };
+
   render() {
     const { data, contents } = this.state;
 
@@ -90,10 +103,14 @@ class Chat extends Component {
     return (
       <div className="chat">
         <div className="chat-header">
-          <div className="chat-header-btn">뒤로</div>
+          <div className="chat-header-btn" onClick={this.handleBack}>
+            뒤로
+          </div>
           <div className="chat-header-name">{data.name}</div>
         </div>
-        <div className="chat-contents">{items}</div>
+        <div className="chat-contents" ref={e => (this.chatContents = e)}>
+          {items}
+        </div>
         <div className="chat-footer">
           <label for="file-input">
             <img src={ATTACHMENT} alt="img" />

@@ -12,7 +12,6 @@ const ChatSendItem = ({ data, history }) => {
     });
   };
 
-  console.log(data);
   return (
     <div className="chat-send-item">
       {(() => {
