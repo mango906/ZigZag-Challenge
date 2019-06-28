@@ -3,7 +3,7 @@ import './Chat.scss';
 import { inject, observer } from 'mobx-react';
 import ChatSendItem from './ChatSendItem';
 import ChatRecieveItem from './ChatReceiveItem';
-import ATTACHMENT from './../static/icon/attachment.png';
+import ATTACHMENT from './../../static/icon/attachment.png';
 
 @inject('stores')
 @observer
@@ -32,19 +32,20 @@ class Chat extends Component {
   };
 
   handleSubmit = async () => {
-    const { contents } = this.state;
+    const { contents, data } = this.state;
     const { stores, match } = this.props;
     const idx = match.params.id;
     let req = {
+      id: data.data.length,
       type: 'sended',
       content: contents,
       mimeType: 'text'
     };
 
     await stores.member.submitChat(idx, req);
-    const data = await stores.member.getChats(idx);
+    const chatData = await stores.member.getChats(idx);
     this.setState({
-      data
+      data: chatData
     });
 
     this.setState({
@@ -53,21 +54,23 @@ class Chat extends Component {
   };
 
   uploadFile = async e => {
+    const { data } = this.state;
     const { stores, match } = this.props;
     const idx = match.params.id;
 
     const file = e.target.files[0];
 
     let req = {
+      id: data.data.length,
       mimeType: file.type,
       type: 'sended',
       content: file
     };
 
     await stores.member.submitChat(idx, req);
-    const data = await stores.member.getChats(idx);
+    const chatData = await stores.member.getChats(idx);
     this.setState({
-      data
+      data: chatData
     });
   };
 
@@ -78,7 +81,7 @@ class Chat extends Component {
       data.data &&
       data.data.map(d => {
         if (d.type === 'sended') {
-          return <ChatSendItem data={d} key={d.id} />;
+          return <ChatSendItem data={d} key={d.id} handleBigImage={this.handleBigImage} />;
         } else {
           return <ChatRecieveItem data={d} key={d.id} profile_image={data.profile_image} />;
         }

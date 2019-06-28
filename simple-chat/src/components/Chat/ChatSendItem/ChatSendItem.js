@@ -1,9 +1,18 @@
 import React from 'react';
 import './ChatSendItem.scss';
-import myInfo from './../../static/data/myinfo.json';
-import ATTACHMENT from './../../static/icon/attachment.png';
+import { withRouter } from 'react-router-dom';
+import myInfo from './../../../static/data/myinfo.json';
+import ATTACHMENT from './../../../static/icon/attachment.png';
 
-const ChatSendItem = ({ data }) => {
+const ChatSendItem = ({ data, history }) => {
+  const handleBigImage = () => {
+    history.push({
+      pathname: '/imageBigView',
+      state: { url: URL.createObjectURL(data.content) }
+    });
+  };
+
+  console.log(data);
   return (
     <div className="chat-send-item">
       {(() => {
@@ -11,7 +20,12 @@ const ChatSendItem = ({ data }) => {
           return <div className="chat-send-item-content">{data.content}</div>;
         else if (data.mimeType === 'image/jpeg' || data.mimeType === 'image/png')
           return (
-            <img className="chat-send-item-img" src={URL.createObjectURL(data.content)} alt="img" />
+            <img
+              className="chat-send-item-img"
+              src={URL.createObjectURL(data.content)}
+              alt="img"
+              onClick={handleBigImage}
+            />
           );
         else
           return (
@@ -29,4 +43,4 @@ const ChatSendItem = ({ data }) => {
   );
 };
 
-export default ChatSendItem;
+export default withRouter(ChatSendItem);

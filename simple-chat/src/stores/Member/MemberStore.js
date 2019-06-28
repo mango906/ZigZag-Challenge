@@ -8,11 +8,13 @@ class MemberStore {
       profile_image: 'https://cf.shop.s.zigzag.kr/images/imvely.jpg',
       data: [
         {
+          id: 0,
           type: 'received',
           content: '받는 메세지',
           mimeType: 'text'
         },
         {
+          id: 1,
           type: 'sended',
           content: '보내는 메세지',
           mimeType: 'text'

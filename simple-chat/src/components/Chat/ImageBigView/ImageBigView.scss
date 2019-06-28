@@ -1,0 +1,22 @@
+.image-bigview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  height: 100vh;
+
+  &-img {
+    position: relative;
+    width: auto;
+    max-height: 100%;
+  }
+
+  &-closebtn {
+    right: 0;
+    top: 0;
+    position: absolute;
+    cursor: pointer;
+    margin: 30px;
+  }
+}
