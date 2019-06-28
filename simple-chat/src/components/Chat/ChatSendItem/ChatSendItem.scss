@@ -9,6 +9,7 @@
     display: flex;
     padding: 20px 50px 20px 20px;
     height: auto;
+    word-wrap: break-word;
     color: #a9a9a9;
     font-weight: bold;
     margin: 30px;
@@ -21,9 +22,24 @@
     background-color: #fff;
     padding: 20px 50px 20px 20px;
     width: 200px;
-    height: 200px;
+    height: 00px;
     height: auto;
     margin: 30px;
+  }
+
+  &-file {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 10px;
+    width: 200px;
+    height: 00px;
+    height: auto;
+    margin: 30px;
+
+    span {
+      font-size: 1.2rem;
+    }
   }
 
   &-profile-image {

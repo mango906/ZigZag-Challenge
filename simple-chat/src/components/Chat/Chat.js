@@ -61,7 +61,7 @@ class Chat extends Component {
     let req = {
       mimeType: file.type,
       type: 'sended',
-      content: URL.createObjectURL(file)
+      content: file
     };
 
     await stores.member.submitChat(idx, req);
