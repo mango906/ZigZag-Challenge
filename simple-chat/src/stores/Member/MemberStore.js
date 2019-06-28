@@ -9,11 +9,13 @@ class MemberStore {
       data: [
         {
           type: 'received',
-          content: '받는 메세지'
+          content: '받는 메세지',
+          mimeType: 'text'
         },
         {
           type: 'sended',
-          content: '보내는 메세지'
+          content: '보내는 메세지',
+          mimeType: 'text'
         }
       ]
     },

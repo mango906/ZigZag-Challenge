@@ -7,18 +7,26 @@
 
   &-content {
     display: flex;
-    padding: 0px 50px 0px 20px;
-    height: 50px;
-
+    padding: 20px 50px 20px 20px;
+    height: auto;
     color: #a9a9a9;
     font-weight: bold;
     margin: 30px;
-
-    line-height: 50px;
     border-radius: 3px;
     background-color: #fff;
   }
-  img {
+
+  &-img {
+    display: flex;
+    background-color: #fff;
+    padding: 20px 50px 20px 20px;
+    width: 200px;
+    height: 200px;
+    height: auto;
+    margin: 30px;
+  }
+
+  &-profile-image {
     border-radius: 50%;
     width: 70px;
     height: 70px;
