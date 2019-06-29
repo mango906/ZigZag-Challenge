@@ -3,6 +3,7 @@ import './ChatSendItem.scss';
 import { withRouter } from 'react-router-dom';
 import myInfo from './../../../static/data/myinfo.json';
 import ATTACHMENT from './../../../static/icon/attachment.png';
+import library from '../../../lib';
 
 const ChatSendItem = ({ data, history }) => {
   const handleBigImage = () => {
@@ -14,6 +15,7 @@ const ChatSendItem = ({ data, history }) => {
 
   return (
     <div className="chat-send-item">
+      <div className="chat-send-item-date">{library.calculateTime(data.date)}</div>
       {(() => {
         if (data.mimeType === 'text')
           return <div className="chat-send-item-content">{data.content}</div>;
@@ -36,7 +38,6 @@ const ChatSendItem = ({ data, history }) => {
             </a>
           );
       })()}
-
       <img className="chat-send-item-profile-image" src={myInfo.profile_image} alt="img" />
     </div>
   );

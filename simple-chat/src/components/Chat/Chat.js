@@ -27,7 +27,6 @@ class Chat extends Component {
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log(prevProps);
     if (prevState.data.data && this.state.data.data.length) {
       const list = this.chatContents.current;
       return list.scrollHeight - list.scrollTop;
@@ -92,10 +91,6 @@ class Chat extends Component {
       data: chatData
     });
   };
-
-  // scrollToBottom = () => {
-  //   this.chatContents.scrollIntoView({ behavior: 'smooth' });
-  // };
 
   handleBack = () => {
     const { history } = this.props;

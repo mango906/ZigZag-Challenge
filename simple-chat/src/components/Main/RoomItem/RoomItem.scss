@@ -22,8 +22,12 @@
     }
 
     &-content {
+      width: 300px;
       color: #808080;
       margin-top: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 }

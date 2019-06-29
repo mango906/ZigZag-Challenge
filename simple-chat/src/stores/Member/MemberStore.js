@@ -11,13 +11,15 @@ class MemberStore {
           id: 0,
           type: 'received',
           content: '받는 메세지',
-          mimeType: 'text'
+          mimeType: 'text',
+          date: '2019-06-29 10:01:03'
         },
         {
           id: 1,
           type: 'sended',
           content: '보내는 메세지',
-          mimeType: 'text'
+          mimeType: 'text',
+          date: '2019-06-29 20:01:03'
         }
       ]
     },

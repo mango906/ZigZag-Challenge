@@ -5,18 +5,21 @@
     display: flex;
     position: relative;
     background: #3e3f4e;
-    color: #c6c6cc;
+
     height: 100px;
     line-height: 100px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
 
     &-btn {
+      color: #9e9fa6;
       cursor: pointer;
-      padding-left: 20px;
+      padding-left: 30px;
     }
 
     &-name {
+      color: #c6c6cc;
       position: absolute;
       transform: translateX(-50%);
       left: 50%;
