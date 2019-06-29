@@ -1,9 +1,9 @@
 import React from 'react';
 import './ChatSendItem.scss';
 import { withRouter } from 'react-router-dom';
-import myInfo from './../../../static/data/myinfo.json';
-import ATTACHMENT from './../../../static/icon/attachment.png';
-import library from '../../../lib';
+import myInfo from 'static/data/myinfo.json';
+import ATTACHMENT from 'static/icon/attachment.png';
+import library from 'lib';
 
 const ChatSendItem = ({ data, history }) => {
   const handleBigImage = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ImageBigView.scss';
 
-import CLOSE from './../../../static/icon/close.png';
+import CLOSE from 'static/icon/close.png';
 
 const ImageBigView = ({ history, location }) => {
   const handleBack = () => {

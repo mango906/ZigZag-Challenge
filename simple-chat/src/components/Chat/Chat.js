@@ -3,7 +3,7 @@ import './Chat.scss';
 import { inject, observer } from 'mobx-react';
 import ChatSendItem from './ChatSendItem';
 import ChatRecieveItem from './ChatReceiveItem';
-import ATTACHMENT from './../../static/icon/attachment.png';
+import ATTACHMENT from 'static/icon/attachment.png';
 
 @inject('stores')
 @observer
@@ -126,6 +126,7 @@ class Chat extends Component {
             <img src={ATTACHMENT} alt="img" />
           </label>
           <input className="file-input" type="file" id="file-input" onChange={this.uploadFile} />
+          <div />
           <input
             onChange={this.handleChange}
             value={contents}

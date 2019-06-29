@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChatRecieveItem.scss';
-import library from '../../../lib';
+import library from 'lib';
 
 const ChatRecieveItem = ({ data, profile_image }) => {
   return (
