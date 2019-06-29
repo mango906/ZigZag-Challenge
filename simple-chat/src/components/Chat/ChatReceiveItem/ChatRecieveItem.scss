@@ -17,11 +17,15 @@
   &-content {
     display: flex;
     padding: 15px 20px 15px 30px;
+    word-wrap: break-word;
+    white-space: pre-line;
     color: #a9a9a9;
     font-weight: bold;
+    line-height: 1.2rem;
     margin: 20px 0px 0px 30px;
     border-radius: 3px;
     background-color: #fff;
+    max-width: 250px;
   }
   img {
     border-radius: 50%;
