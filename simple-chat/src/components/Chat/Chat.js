@@ -21,7 +21,7 @@ class Chat extends Component {
   async componentDidMount() {
     const { stores, match } = this.props;
     const idx = match.params.id;
-    const data = await stores.member.getChats(idx);
+    const data = await stores.getChats(idx);
     this.setState({
       data
     });
@@ -44,8 +44,8 @@ class Chat extends Component {
       mimeType: 'text'
     };
 
-    await stores.member.submitChat(idx, req);
-    const chatData = await stores.member.getChats(idx);
+    await stores.submitChat(idx, req);
+    const chatData = await stores.getChats(idx);
     this.setState({
       data: chatData
     });
@@ -69,8 +69,8 @@ class Chat extends Component {
       content: file
     };
 
-    await stores.member.submitChat(idx, req);
-    const chatData = await stores.member.getChats(idx);
+    await stores.submitChat(idx, req);
+    const chatData = await stores.getChats(idx);
     this.setState({
       data: chatData
     });
@@ -85,7 +85,7 @@ class Chat extends Component {
     const { stores, match } = this.props;
     const idx = match.params.id;
     const name = prompt('방 이름을 입력해주세요.');
-    stores.member.settings(idx, name);
+    stores.settings(idx, name);
   };
 
   render() {

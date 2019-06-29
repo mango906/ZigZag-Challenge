@@ -16,7 +16,8 @@ class Main extends Component {
 
   async componentDidMount() {
     const { stores } = this.props;
-    const data = await stores.member.getRooms();
+    console.log(stores);
+    const data = await stores.getRooms();
     this.setState({
       data
     });

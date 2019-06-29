@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-class MemberStore {
+class Store {
   @observable items = [
     {
       id: 0,
@@ -101,4 +101,4 @@ class MemberStore {
   }
 }
 
-export default MemberStore;
+export default Store;
