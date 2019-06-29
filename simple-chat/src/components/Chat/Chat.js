@@ -10,6 +10,7 @@ import ATTACHMENT from './../../static/icon/attachment.png';
 class Chat extends Component {
   constructor(props) {
     super(props);
+    this.chatContents = React.createRef();
     this.state = {
       data: [],
       contents: ''
@@ -23,8 +24,24 @@ class Chat extends Component {
     this.setState({
       data
     });
+  }
 
-    this.scrollToBottom();
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log(prevProps);
+    if (prevState.data.data && this.state.data.data.length) {
+      const list = this.chatContents.current;
+      return list.scrollHeight - list.scrollTop;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot !== null) {
+      const list = this.chatContents.current;
+      list.scrollTop = list.scrollHeight - snapshot;
+
+      console.log(snapshot);
+    }
   }
 
   handleChange = e => {
@@ -53,8 +70,6 @@ class Chat extends Component {
     this.setState({
       contents: ''
     });
-
-    this.scrollToBottom();
   };
 
   uploadFile = async e => {
@@ -78,9 +93,9 @@ class Chat extends Component {
     });
   };
 
-  scrollToBottom = () => {
-    this.chatContents.scrollIntoView({ behavior: 'smooth' });
-  };
+  // scrollToBottom = () => {
+  //   this.chatContents.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   handleBack = () => {
     const { history } = this.props;
@@ -108,7 +123,7 @@ class Chat extends Component {
           </div>
           <div className="chat-header-name">{data.name}</div>
         </div>
-        <div className="chat-contents" ref={e => (this.chatContents = e)}>
+        <div className="chat-contents" ref={this.chatContents}>
           {items}
         </div>
         <div className="chat-footer">

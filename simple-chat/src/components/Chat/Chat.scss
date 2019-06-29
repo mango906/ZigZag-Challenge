@@ -3,8 +3,7 @@
 
   &-header {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    position: relative;
     background: #3e3f4e;
     color: #c6c6cc;
     height: 100px;
@@ -13,11 +12,14 @@
     text-align: center;
 
     &-btn {
-      float: left;
+      cursor: pointer;
+      padding-left: 20px;
     }
 
     &-name {
-      font-weight: bold;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
     }
   }
 
