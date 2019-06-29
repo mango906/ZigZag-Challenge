@@ -20,6 +20,20 @@ class MemberStore {
           content: '보내는 메세지',
           mimeType: 'text',
           date: '2019-06-29 20:01:05'
+        },
+        {
+          id: 2,
+          type: 'sended',
+          content: '보내는 메세지',
+          mimeType: 'text',
+          date: '2019-06-29 20:03:05'
+        },
+        {
+          id: 2,
+          type: 'sended',
+          content: '보내는 메세지',
+          mimeType: 'text',
+          date: '2019-06-30 20:03:05'
         }
       ]
     },
@@ -80,6 +94,10 @@ class MemberStore {
 
   @action submitChat(idx, data) {
     this.items[idx].data.push(data);
+  }
+
+  @action settings(idx, name) {
+    this.items[idx].name = name;
   }
 }
 

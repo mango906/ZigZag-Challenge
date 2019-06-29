@@ -5,4 +5,6 @@ const calculateTime = time => {
   return moment(regTime).format('HH:mm');
 };
 
-export default { calculateTime };
+export default {
+  calculateTime: calculateTime
+};

@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react';
 import ChatSendItem from './ChatSendItem';
 import ChatRecieveItem from './ChatReceiveItem';
 import ATTACHMENT from 'static/icon/attachment.png';
+import SETTING from 'static/icon/setting.png';
 
 @inject('stores')
 @observer
@@ -24,23 +25,6 @@ class Chat extends Component {
     this.setState({
       data
     });
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    if (prevState.data.data && this.state.data.data.length) {
-      const list = this.chatContents.current;
-      return list.scrollHeight - list.scrollTop;
-    }
-    return null;
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (snapshot !== null) {
-      const list = this.chatContents.current;
-      list.scrollTop = list.scrollHeight - snapshot;
-
-      console.log(snapshot);
-    }
   }
 
   handleChange = e => {
@@ -97,6 +81,13 @@ class Chat extends Component {
     history.goBack();
   };
 
+  handleSetting = () => {
+    const { stores, match } = this.props;
+    const idx = match.params.id;
+    const name = prompt('방 이름을 입력해주세요.');
+    stores.member.settings(idx, name);
+  };
+
   render() {
     const { data, contents } = this.state;
 
@@ -117,6 +108,9 @@ class Chat extends Component {
             뒤로
           </div>
           <div className="chat-header-name">{data.name}</div>
+          <div className="chat-header-setting">
+            <img src={SETTING} alt="img" onClick={this.handleSetting} />
+          </div>
         </div>
         <div className="chat-contents" ref={this.chatContents}>
           {items}
