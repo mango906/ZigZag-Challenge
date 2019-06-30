@@ -13,6 +13,7 @@ class Chat extends Component {
     super(props);
     this.chatContents = React.createRef();
     this.inputText = React.createRef();
+    this.fileInput = React.createRef();
     this.state = {
       data: []
     };
@@ -81,6 +82,8 @@ class Chat extends Component {
     this.setState({
       data: chatData
     });
+
+    this.fileInput.value = '';
   };
 
   handleBack = () => {
@@ -141,7 +144,13 @@ class Chat extends Component {
           <label for="file-input">
             <img src={ATTACHMENT} alt="img" />
           </label>
-          <input className="file-input" type="file" id="file-input" onChange={this.uploadFile} />
+          <input
+            className="file-input"
+            type="file"
+            id="file-input"
+            onChange={this.uploadFile}
+            ref={el => (this.fileInput = el)}
+          />
           <div />
           <input ref={el => (this.inputText = el)} placeholder="Type something to send..." />
           <button onClick={this.handleSubmit}>보내기</button>
