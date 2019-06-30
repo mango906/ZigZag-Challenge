@@ -89,6 +89,9 @@ class Chat extends Component {
     const { stores, match } = this.props;
     const idx = match.params.id;
     const name = prompt('방 이름을 입력해주세요.');
+
+    if (!name) return;
+
     stores.settings(idx, name);
   };
 
