@@ -30,7 +30,7 @@ const ChatSendItem = ({ data, history }) => {
           );
         else
           return (
-            <a href={URL.createObjectURL(data.content)}>
+            <a href={URL.createObjectURL(data.content)} download>
               <div className="chat-send-item-file">
                 <img src={ATTACHMENT} alt="img" />
                 <span>{data.content.name}</span>
