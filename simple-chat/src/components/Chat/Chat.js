@@ -44,6 +44,8 @@ class Chat extends Component {
       mimeType: 'text'
     };
 
+    if (!contents) return;
+
     await stores.submitChat(idx, req);
     const chatData = await stores.getChats(idx);
     this.setState({
@@ -90,6 +92,13 @@ class Chat extends Component {
     stores.settings(idx, name);
   };
 
+  handleKeyPress = e => {
+    /* Enter KeyCode 13 */
+    if (e.keyCode === 13) {
+      this.handleSubmit();
+    }
+  };
+
   render() {
     const { data, contents } = this.state;
 
@@ -104,7 +113,7 @@ class Chat extends Component {
       });
 
     return (
-      <div className="chat">
+      <div className="chat" onKeyDown={this.handleKeyPress}>
         <div className="chat-header">
           <div className="chat-header-btn" onClick={this.handleBack}>
             뒤로
