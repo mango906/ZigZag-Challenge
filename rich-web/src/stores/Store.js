@@ -29,7 +29,7 @@ class Store {
           date: '2019-06-29 20:03:05'
         },
         {
-          id: 2,
+          id: 3,
           type: 'sended',
           content: '보내는 메세지',
           mimeType: 'text',

@@ -141,7 +141,7 @@ class Chat extends Component {
           {items}
         </div>
         <div className="chat-footer">
-          <label for="file-input">
+          <label htmlFor="file-input">
             <img src={ATTACHMENT} alt="img" />
           </label>
           <input
