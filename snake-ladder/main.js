@@ -46,6 +46,8 @@ class SnakeLadders {
     console.log(`${turn.name} is on square ${turn.square}`);
     if (die1 !== die2) {
       playerSwitch(turn.name);
+    } else {
+      console.log('One more change!');
     }
   }
 }
@@ -159,5 +161,13 @@ diceChk = (die1, die2) => {
 submit = () => {
   const die1 = parseInt(document.getElementById('die1').value);
   const die2 = parseInt(document.getElementById('die2').value);
+  s.play(die1, die2);
+};
+
+randomSubmit = () => {
+  const die1 = Math.floor(Math.random() * 6) + 1;
+  const die2 = Math.floor(Math.random() * 6) + 1;
+  console.log(`Random die1 : ${die1}`);
+  console.log(`Random die2 : ${die2}`);
   s.play(die1, die2);
 };
