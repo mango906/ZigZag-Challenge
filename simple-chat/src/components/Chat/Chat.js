@@ -62,6 +62,8 @@ class Chat extends Component {
 
     const file = e.target.files[0];
 
+    if (file === null) return;
+
     let req = {
       id: data.data.length,
       mimeType: file.type,
