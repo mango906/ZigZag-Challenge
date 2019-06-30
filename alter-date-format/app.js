@@ -1,9 +1,13 @@
-let args = process.argv.slice(2);
+let data = process.argv.slice(2);
+
+if (data.length != 2) {
+  console.log('입력 양식을 다시 확인해주세요.');
+  process.exit();
+}
 
 /* 
   type: 0 time: 1 add time: 2  
 */
-let data = args[0].split(' ');
 
 /* 
   hour: 0 min: 1 sec: 2 
@@ -48,7 +52,9 @@ const invalidCheck = (() => {
   time.forEach((time, i) => {
     timeChk += time;
   });
-  if (!timeChk <= 120000) {
+
+  if (timeChk <= 120000 === false) {
+    console.log('timeChk', timeChk);
     console.log('입력 양식을 다시 확인해주세요.');
     process.exit();
   }
