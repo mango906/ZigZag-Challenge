@@ -6,17 +6,16 @@
 
 ```
 $ node app.js PM 01:01:00 3600
-
 ```
 
 #### 작동화면
 
-![alt text](./img/complete_code.jpg)
+![alt text](./img/complete_code.JPG)
 
-![alt text](./img/complete_result.jpg)
+![alt text](./img/complete_result.JPG)
 
 #### 잘못된 예
 
-![alt text](./img/error_code.jpg)
+![alt text](./img/error_code.JPG)
 
-![alt text](./img/error_result.jpg)
+![alt text](./img/error_result.JPG)
