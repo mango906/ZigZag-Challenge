@@ -1,6 +1,6 @@
 # snake-ladder
 
-![alt Text](./img/snakesandladdersboard.JPG)
+![alt Text](./img/snakesandladdersboard.jpg)
 
 - 규칙
   1. 두 플레이어는 0의 위치에서 시작합니다.
