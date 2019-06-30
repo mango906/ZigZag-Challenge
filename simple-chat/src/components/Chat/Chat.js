@@ -12,10 +12,14 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.chatContents = React.createRef();
+    this.inputText = React.createRef();
     this.state = {
-      data: [],
-      contents: ''
+      data: []
     };
+  }
+
+  componentDidUpdate() {
+    this.chatContents.scrollTop = 99999;
   }
 
   async componentDidMount() {
@@ -25,6 +29,7 @@ class Chat extends Component {
     this.setState({
       data
     });
+    this.chatContents.scrollTop = 99999;
   }
 
   handleChange = e => {
@@ -34,17 +39,17 @@ class Chat extends Component {
   };
 
   handleSubmit = async () => {
-    const { contents, data } = this.state;
+    const { data } = this.state;
     const { stores, match } = this.props;
     const idx = match.params.id;
     let req = {
       id: data.data.length,
       type: 'sended',
-      content: contents,
+      content: this.inputText.value,
       mimeType: 'text'
     };
 
-    if (!contents) return;
+    if (!this.inputText.value) return;
 
     await stores.submitChat(idx, req);
     const chatData = await stores.getChats(idx);
@@ -52,9 +57,7 @@ class Chat extends Component {
       data: chatData
     });
 
-    this.setState({
-      contents: ''
-    });
+    this.inputText.value = '';
   };
 
   uploadFile = async e => {
@@ -103,7 +106,7 @@ class Chat extends Component {
   };
 
   render() {
-    const { data, contents } = this.state;
+    const { data } = this.state;
 
     const items =
       data.data &&
@@ -126,7 +129,12 @@ class Chat extends Component {
             <img src={SETTING} alt="img" onClick={this.handleSetting} />
           </div>
         </div>
-        <div className="chat-contents" ref={this.chatContents}>
+        <div
+          className="chat-contents"
+          ref={el => {
+            this.chatContents = el;
+          }}
+        >
           {items}
         </div>
         <div className="chat-footer">
@@ -135,11 +143,7 @@ class Chat extends Component {
           </label>
           <input className="file-input" type="file" id="file-input" onChange={this.uploadFile} />
           <div />
-          <input
-            onChange={this.handleChange}
-            value={contents}
-            placeholder="Type something to send..."
-          />
+          <input ref={el => (this.inputText = el)} placeholder="Type something to send..." />
           <button onClick={this.handleSubmit}>보내기</button>
         </div>
       </div>

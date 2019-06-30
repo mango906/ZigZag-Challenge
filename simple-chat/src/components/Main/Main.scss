@@ -1,4 +1,7 @@
 .main {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
   width: 500px;
 
   &-header {
@@ -10,5 +13,10 @@
     height: 100px;
     line-height: 100px;
     font-size: 1.65rem;
+  }
+
+  &-content {
+    height: 800px;
+    overflow-y: scroll;
   }
 }

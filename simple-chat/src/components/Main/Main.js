@@ -16,7 +16,6 @@ class Main extends Component {
 
   async componentDidMount() {
     const { stores } = this.props;
-    console.log(stores);
     const data = await stores.getRooms();
     this.setState({
       data
@@ -37,7 +36,7 @@ class Main extends Component {
     return (
       <div className="main">
         <div className="main-header">CHAT</div>
-        {items}
+        <div className="main-content">{items}</div>
       </div>
     );
   }

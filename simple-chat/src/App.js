@@ -8,8 +8,6 @@ import ImageBigView from './components/Chat/ImageBigView';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">{/* <Main /> */}</div>
-
       <Route exact path="/" component={Main} />
       <Route path="/chat/:id" component={Chat} />
       <Route path="/imageBigView" component={ImageBigView} />
