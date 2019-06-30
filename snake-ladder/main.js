@@ -47,7 +47,7 @@ class SnakeLadders {
     if (die1 !== die2) {
       playerSwitch(turn.name);
     } else {
-      console.log('One more change!');
+      console.log('One more chance!');
     }
   }
 }
@@ -161,6 +161,8 @@ diceChk = (die1, die2) => {
 submit = () => {
   const die1 = parseInt(document.getElementById('die1').value);
   const die2 = parseInt(document.getElementById('die2').value);
+  console.log(`die1 : ${die1}`);
+  console.log(`die2 : ${die2}`);
   s.play(die1, die2);
 };
 
