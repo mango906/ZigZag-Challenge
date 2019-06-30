@@ -155,3 +155,9 @@ playerSwitch = name => {
 diceChk = (die1, die2) => {
   return !(die1 >= 1 && die1 <= 6 && die2 >= 1 && die2 <= 6);
 };
+
+submit = () => {
+  const die1 = parseInt(document.getElementById('die1').value);
+  const die2 = parseInt(document.getElementById('die2').value);
+  s.play(die1, die2);
+};
