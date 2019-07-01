@@ -20,7 +20,9 @@ class Chat extends Component {
   }
 
   componentDidUpdate() {
-    this.chatContents.scrollTop = 99999;
+    if (this.chatContents.scrollHeight !== this.chatContents.clientHeight) {
+      this.chatContents.scrollTop = 99999;
+    }
   }
 
   async componentDidMount() {
@@ -30,7 +32,9 @@ class Chat extends Component {
     this.setState({
       data
     });
-    this.chatContents.scrollTop = 99999;
+    if (this.chatContents.scrollHeight !== this.chatContents.clientHeight) {
+      this.chatContents.scrollTop = 99999;
+    }
   }
 
   handleChange = e => {
