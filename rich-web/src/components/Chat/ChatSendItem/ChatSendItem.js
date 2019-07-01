@@ -5,7 +5,7 @@ import myInfo from 'static/data/myinfo.json';
 import ATTACHMENT from 'static/icon/attachment.png';
 import library from 'lib';
 
-const ChatSendItem = ({ data, history }) => {
+const ChatSendItem = ({ data, history, handleLoad }) => {
   const handleBigImage = () => {
     history.push({
       pathname: '/imageBigView',
@@ -25,6 +25,7 @@ const ChatSendItem = ({ data, history }) => {
               className="chat-send-item-img"
               src={URL.createObjectURL(data.content)}
               alt="img"
+              onLoad={handleLoad}
               onClick={handleBigImage}
             />
           );

@@ -20,9 +20,7 @@ class Chat extends Component {
   }
 
   componentDidUpdate() {
-    if (this.chatContents.scrollHeight !== this.chatContents.clientHeight) {
-      this.chatContents.scrollTop = 99999;
-    }
+    this.scrollToBottom();
   }
 
   async componentDidMount() {
@@ -32,9 +30,7 @@ class Chat extends Component {
     this.setState({
       data
     });
-    if (this.chatContents.scrollHeight !== this.chatContents.clientHeight) {
-      this.chatContents.scrollTop = 99999;
-    }
+    this.scrollToBottom();
   }
 
   handleChange = e => {
@@ -112,6 +108,16 @@ class Chat extends Component {
     }
   };
 
+  handleLoad = () => {
+    this.scrollToBottom();
+  };
+
+  scrollToBottom = () => {
+    if (this.chatContents.scrollHeight !== this.chatContents.clientHeight) {
+      this.chatContents.scrollTop = this.chatContents.scrollHeight;
+    }
+  };
+
   render() {
     const { data } = this.state;
 
@@ -119,7 +125,14 @@ class Chat extends Component {
       data.data &&
       data.data.map(d => {
         if (d.type === 'sended') {
-          return <ChatSendItem data={d} key={d.id} handleBigImage={this.handleBigImage} />;
+          return (
+            <ChatSendItem
+              data={d}
+              key={d.id}
+              handleBigImage={this.handleBigImage}
+              handleLoad={this.handleLoad}
+            />
+          );
         } else {
           return <ChatRecieveItem data={d} key={d.id} profile_image={data.profile_image} />;
         }
