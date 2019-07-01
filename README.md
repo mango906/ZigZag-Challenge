@@ -8,10 +8,10 @@
 $ git clone https://github.com/mango906/ZigZag-Challenge
 ```
 
-- [alter-date-format]('https://github.com/mango906/ZigZag-Challenge/tree/master/alter-date-format')
+- alter-date-format
 
-- [rich-web]('https://github.com/mango906/ZigZag-Challenge/tree/master/rich-web)
+- rich-web
 
-- [snake-ladder]('https://github.com/mango906/ZigZag-Challenge/tree/master/snake-ladder')
+- snake-ladder
 
 #### 자세한 사용법은 프로젝트 링크로 확인하시면 됩니다.
