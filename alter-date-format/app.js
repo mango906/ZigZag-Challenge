@@ -1,7 +1,7 @@
 let data = process.argv.slice(2);
 
 if (data.length != 3) {
-  console.log('입력 양식을 다시 확인해주세요.1');
+  console.log('입력 양식을 다시 확인해주세요.');
   process.exit();
 }
 
