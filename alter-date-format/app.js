@@ -5,9 +5,7 @@ if (data.length != 3) {
   process.exit();
 }
 
-/* 
-  type: 0 time: 1 add time: 2  
-*/
+
 
 /* 
   hour: 0 min: 1 sec: 2 
