@@ -28,4 +28,7 @@
 
 ![alt text](./img/filedownload.png)
 
-###
+### 기타
+
+- ChatReceiveItem에는 이미지, 파일을 구현하지 않았다.
+- 서버 대신 MobX 스토어를 통해 구현하였다.
